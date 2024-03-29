@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/res/images/logo.png" alt="logo">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">A+PRO</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+             
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#home">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="papers.html">
+                            <i class='bx bx-book-alt icon' ></i>
+                            <span class="text nav-text">Papers</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="downloads.html">
+                            <i class='bx bx-download icon'></i>
+                            <span class="text nav-text">Downloads</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="summaryPRO.html">
+                            <i class='bx bx-caret-right-circle icon'></i>
+                            <span class="text nav-text">SummaryPRO</span>
+                            
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="index.html">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">Welcome to A+PRO.</div>
+        <div class="search-bar">
+            <select id="filter">
+                <option value="all">Filter</option>
+                <option value="category1">Year</option>
+                <option value="category2">Semester</option>
+                <option value="category2">Unit</option>
+                <option value="category2">Course</option>
+            </select>
+            <input type="text" id="search" placeholder="Search...">
+            <button type="submit" onclick="search()">Search</button>
+        </div>
+        
+    
+        <div class="card-container">
+
+            <div class="card">
+                <div class="containerOne">
+                    <img src="/res/images/1.jpg" alt="Image 1">
+                </div>
+                <div class="containerTwo">
+                    <p class="card-para">Bachelor of Science in Information Technology</p>
+                    <a class="card-title" href="#">BIT 110 Introduction to Information Technology : Sem 1...</a>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="containerOne">
+                    <img src="/res/images/2.jpg" alt="Image 2">
+                </div>
+                <div class="containerTwo">
+                    <p class="card-para">Bachelor of Science in Information Technology</p>
+                    <a class="card-title" href="#">BIT 111 Discrete Mathematics : Sem 1...</a>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="containerOne">
+                    <img src="/res/images/3.jpg" alt="Image 3">
+                </div>
+                <div class="containerTwo">
+                    <p class="card-para">Bachelor of Science in Information Technology</p>
+                    <a class="card-title" href="#">BIT 124 Computer Organization and Architecture : Sem 1...</a>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="containerOne">
+                    <img src="/res/images/4.jpg" alt="Image 4">
+                </div>
+                <div class="containerTwo">
+                    <p class="card-para">Bachelor of Science in Information Technology</p>
+                    <a class="card-title" href="#">BIT 113 Computer Support and Maintenance : Sem 1...</a>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+    
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
