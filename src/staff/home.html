@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="upload.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/res/images/logo.png" alt="logo">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">A+PRO</span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+             
+
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="#home">
+                            <i class='bx bx-home-alt icon' ></i>
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-link">
+                        <a href="recentuploads.html">
+                            <i class='bx bx-download icon'></i>
+                            <span class="text nav-text">Recent uploads</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/src/login/index.html">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="home">
+        <div class="text">Welcome to A+PRO.</div>
+        
+        
+        <form class="dropzone-box">
+            <h2>Upload and attach files</h2>
+            <div class="dropzone-area">
+                <div class="file-upload-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-cloud-upload" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M7 18a4.6 4.4 0 0 1 0 -9a5 4.5 0 0 1 11 2h1a3.5 3.5 0 0 1 0 7h-1" />
+                        <path d="M9 15l3 -3l3 3" />
+                        <path d="M12 12l0 9" />
+                    </svg>
+                </div>
+                <input type="file" required id="upload-file" name="uploaded-file">
+                <p class="file-info">Click to upload or drag and drop</p>
+            </div>
+            <div class="dropzone-actions">
+                <button type="reset">
+                    Cancel
+                </button>
+                <button id="submit-button" type="submit">
+                    Save
+                </button>
+            </div>
+        </form>
+    
+        <script src="upload.js"></script>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

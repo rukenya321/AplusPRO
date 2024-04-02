@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login {
+    width: 800px;
+    min-height: 400px;
+    overflow: hidden;
+    border-radius: 5px;
+    background: white;
+    display: flex;
+    box-shadow: 15px 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+.content {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #011345;
+}
+
+.content img {
+    width: 100%;
+}
+
+.content .bottom-links {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #011345; /* Background color */
+    padding: 10px 0; /* Adjust padding as needed */
+    text-align: center;
+  }
+  
+  .content .bottom-links a {
+    margin: 0 10px; /* Adjust margin as needed */
+    text-decoration: none;
+    color: white; /* Link color */
+  }
+  
+  .content .bottom-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .content .bottom-links span {
+    color: #666; /* Separator color */
+    margin: 0 5px; /* Adjust margin as needed */
+  }
+  
+.loginform {
+    flex-basis: 50%;
+    background: #e7e7e7;
+    font-family: 'Poppins', sans-serif;
+    padding: 25px;
+}
+
+.loginform h1 {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #011345;
+}
+
+.tbox {
+    border-radius: 3px;
+    background: transparent;
+    outline: none;
+    border: 1px solid #011345;
+    width: 100%;
+    height: 35px;
+    margin: 30px 0;
+}
+
+.tbox input {
+    background: transparent;
+    width: 90%;
+    outline: none;
+    border: 0;
+    padding-left: 5px;
+}
+
+::placeholder {
+    color: #011345;
+}
+
+.tbox i {
+    color: #011345;
+    font-size: 15px;
+    padding: 7px;
+}
+
+.btn {
+    width: 100%;
+    border: 0;
+    border-radius: 26px;
+    background: #007cff;
+    color: #fff;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+/** Responsive design for login page **/
+@media(max-width:768px){
+    .login {
+        flex-direction: column;
+        margin: 0 15px;
+    }
+}
