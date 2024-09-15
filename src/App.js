@@ -1,77 +1,88 @@
 import React, { useState } from 'react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
-  const [regNumber, setRegNumber] = useState('');
+  const [staffStudentId, setStaffStudentId] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [schoolCategory, setSchoolCategory] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically make an API call to your backend
-    // For now, we'll just do some basic validation
-    if (!regNumber || !password) {
-      setError('Please fill in all fields');
-    } else {
-      // Determine user type based on reg number
-      let userType = 'student';
-      if (regNumber.toLowerCase().includes('lec')) {
-        userType = 'lecturer';
-      } else if (regNumber.toLowerCase().includes('admin')) {
-        userType = 'admin';
-      }
-      console.log(`Logging in as ${userType} with reg number: ${regNumber}`);
-      // Here you would handle the login logic
-    }
+    // Here you would typically make an API call to your backend for authentication
+    console.log('Login attempted with:', {
+      staffStudentId,
+      password,
+      schoolCategory,
+    });
+    // For now, we'll just navigate to a hypothetical home page
+    navigate('/home');
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg rounded-lg">
-        <h3 className="text-2xl font-bold text-center">Login to A+PRO</h3>
-        <form onSubmit={handleSubmit}>
-          <div className="mt-4">
+    <div className="flex h-screen bg-gray-100">
+      {/* Left side with logo */}
+      <div className="w-1/2 bg-navy-900 flex flex-col justify-between p-8">
+        <div className="text-white text-6xl font-bold">A+</div>
+        <div className="text-white space-x-4">
+          <a href="#" className="hover:underline">
+            About
+          </a>
+          <a href="#" className="hover:underline">
+            Disclaimer
+          </a>
+          <a href="#" className="hover:underline">
+            FAQ
+          </a>
+        </div>
+      </div>
+
+      {/* Right side with login form */}
+      <div className="w-1/2 bg-gray-100 flex items-center justify-center">
+        <div className="max-w-md w-full px-8">
+          <h2 className="text-4xl font-bold mb-8 text-navy-900">Log In</h2>
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block" htmlFor="regNumber">
-                Registration Number
-              </label>
               <input
                 type="text"
-                placeholder="Enter your registration number"
-                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                id="regNumber"
-                value={regNumber}
-                onChange={(e) => setRegNumber(e.target.value)}
+                value={staffStudentId}
+                onChange={(e) => setStaffStudentId(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md"
+                placeholder="Staff/Student ID"
+                required
               />
             </div>
-            <div className="mt-4">
-              <label className="block" htmlFor="password">
-                Password
-              </label>
+            <div>
               <input
                 type="password"
-                placeholder="Enter your password"
-                className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md"
+                placeholder="Password"
+                required
               />
             </div>
-            <div className="flex items-baseline justify-between">
-              <button className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">
-                Continue
-              </button>
-              <a href="#" className="text-sm text-blue-600 hover:underline">
-                Forgot password?
-              </a>
+            <div>
+              <select
+                value={schoolCategory}
+                onChange={(e) => setSchoolCategory(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md appearance-none"
+                required
+              >
+                <option value="">School Category</option>
+                <option value="undergraduate">Undergraduate</option>
+                <option value="postgraduate">Postgraduate</option>
+                <option value="staff">Staff</option>
+              </select>
             </div>
-          </div>
-        </form>
-        {error && (
-          <Alert variant="destructive" className="mt-4">
-            <AlertDescription>{error}</AlertDescription>
-          </Alert>
-        )}
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
+            >
+              LOGIN
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
