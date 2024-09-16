@@ -7,7 +7,7 @@ const LoginPage = () => {
   const [schoolCategory, setSchoolCategory] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     // Here you would typically make an API call to your backend for authentication
     console.log('Login attempted with:', {
@@ -22,7 +22,7 @@ const LoginPage = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Left side with logo */}
-      <div className="w-1/2 bg-navy-900 flex flex-col justify-between p-8">
+      <div className="w-1/2 bg-navy-blue flex flex-col justify-between p-8">
         <div className="text-white text-6xl font-bold">A+</div>
         <div className="text-white space-x-4">
           <a href="#" className="hover:underline">
@@ -38,27 +38,27 @@ const LoginPage = () => {
       </div>
 
       {/* Right side with login form */}
-      <div className="w-1/2 bg-gray-100 flex items-center justify-center">
+      <div className="w-1/2 bg-white flex items-center justify-center">
         <div className="max-w-md w-full px-8">
-          <h2 className="text-4xl font-bold mb-8 text-navy-900">Log In</h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <h2 className="text-3xl font-bold mb-6">Log In</h2>
+          <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <input
                 type="text"
+                placeholder="Staff/Student ID"
                 value={staffStudentId}
                 onChange={(e) => setStaffStudentId(e.target.value)}
                 className="w-full px-3 py-2 border rounded-md"
-                placeholder="Staff/Student ID"
                 required
               />
             </div>
             <div>
               <input
                 type="password"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-3 py-2 border rounded-md"
-                placeholder="Password"
                 required
               />
             </div>
