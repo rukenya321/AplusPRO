@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from '../logo.svg';
 
 const LoginPage = () => {
   const [staffStudentId, setStaffStudentId] = useState('');
@@ -28,7 +29,11 @@ const LoginPage = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Left side with logo */}
-      <div className="w-1/2 bg-navy-blue flex flex-col justify-between p-8">
+      <div className="w-1/2 bg-navy-custom flex flex-col justify-between p-8">
+        <div className="flex items-center">
+          <img src={logo} alt="A+PRO Logo" className="w-32 h-auto" />{' '}
+          {/* Add your logo here */}
+        </div>
         <div className="text-white space-x-4">
           <a href="#" className="hover:underline">
             About
