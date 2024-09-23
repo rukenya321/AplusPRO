@@ -30,11 +30,11 @@ const LoginPage = () => {
     <div className="flex h-screen bg-gray-100">
       {/* Left side with logo */}
       <div className="w-1/2 bg-navy-custom flex flex-col justify-between p-8">
-        <div className="flex items-center">
-          <img src={logo} alt="A+PRO Logo" className="w-32 h-auto" />{' '}
-          {/* Add your logo here */}
+        <div className="flex-grow flex items-center justify-center">
+          <img src={logo} alt="A+PRO Logo" className="w-64 h-auto" />
+          {/* Adjusted logo size */}
         </div>
-        <div className="text-white space-x-4">
+        <div className="text-white space-x-4 mt-6 flex justify-center">
           <a href="#" className="hover:underline">
             About
           </a>
