@@ -23,7 +23,7 @@ const LoginPage = () => {
     } else if (role === 'student') {
       console.log('Student login:', { staffStudentId, password });
       // Redirect to student homepage
-      navigate('/student-homepage'); // Change this route as needed
+      navigate('/HomePage'); // Change this route as needed
     } else {
       console.error('Invalid role selected');
     }
@@ -42,9 +42,6 @@ const LoginPage = () => {
           </a>
           <a href="#" className="hover:underline">
             Disclaimer
-          </a>
-          <a href="#" className="hover:underline">
-            FAQ
           </a>
         </div>
       </div>
