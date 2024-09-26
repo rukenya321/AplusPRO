@@ -1,6 +1,8 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
+import AdminDashboard from './pages/AdminDashboard';
+import LecturerHomepage from './pages/LecturerHomepage';
+import StudentHomepage from './pages/StudentHomepage';
 
 function App() {
   return (

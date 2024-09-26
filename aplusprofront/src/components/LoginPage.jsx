@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/react.svg';
+import logo from '../assets/logo.svg';
+import { useState } from 'react';
 
 const LoginPage = () => {
   const [staffStudentId, setStaffStudentId] = useState('');
