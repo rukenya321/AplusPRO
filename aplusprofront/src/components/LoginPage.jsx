@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../logo.svg';
+import logo from '../logo.png';
 
 const LoginPage = () => {
   const [staffStudentId, setStaffStudentId] = useState('');
@@ -15,15 +15,15 @@ const LoginPage = () => {
     if (role === 'admin') {
       console.log('Admin login:', { staffStudentId, password });
       // Redirect to admin homepage (assuming Admin homepage is /admin-dashboard)
-      navigate('/admin-dashboard');
+      navigate('/admin-home');
     } else if (role === 'staff') {
       console.log('Lecturer login:', { staffStudentId, password });
       // Redirect to lecturer (staff) homepage
-      navigate('/lecturer-homepage'); // Change this route as needed
+      navigate('/lec-home'); // Change this route as needed
     } else if (role === 'student') {
       console.log('Student login:', { staffStudentId, password });
       // Redirect to student homepage
-      navigate('/HomePage'); // Change this route as needed
+      navigate('/home'); // Change this route as needed
     } else {
       console.error('Invalid role selected');
     }
@@ -34,13 +34,13 @@ const LoginPage = () => {
       {/* Left side with logo */}
       <div className="w-1/2 bg-navy-custom flex flex-col justify-between p-8">
         <div className="flex-grow flex items-center justify-center">
-          <img src={logo} alt="A+PRO Logo" className="w-64 h-auto" />
+          <img src={logo} alt="A+PRO Logo" className="w-60 h-auto" />
         </div>
         <div className="text-white space-x-4 mt-6 flex justify-center">
-          <a href="#" className="hover:underline">
+          <a href="/about" className="hover:underline">
             About
           </a>
-          <a href="#" className="hover:underline">
+          <a href="/disclaimer" className="hover:underline">
             Disclaimer
           </a>
         </div>

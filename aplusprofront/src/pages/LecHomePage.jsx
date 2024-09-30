@@ -7,12 +7,13 @@ import { BsFileEarmarkText } from 'react-icons/bs';
 import { CiLogout } from 'react-icons/ci';
 import { AiOutlineSearch, AiOutlineFilter } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import logo from '../logo.png'; // Adjust based on the exact path of the SVG
 
-const HomePage = () => {
+const LecHomePage = () => {
   const menus = [
     { name: 'Home', link: '/', icon: IoHomeOutline },
-    { name: 'Papers', link: '/papers', icon: GiPapers },
-    { name: 'Downloads', link: '/downloads', icon: GoDownload },
+    { name: 'Recent Uploads', link: '/uploads', icon: GiPapers },
+    { name: 'Upload a new paper', link: '/newpaper', icon: GoDownload },
     { name: 'SummaryPRO', link: '/summary', icon: BsFileEarmarkText },
     { name: 'Logout', link: '/logout', icon: CiLogout },
   ];
@@ -28,8 +29,9 @@ const HomePage = () => {
       <div
         className={`bg-[#011345] min-h-screen ${
           open ? 'w-72' : 'w-16'
-        } duration-500 text-gray-100 px-4`}
+        } duration-500 text-gray-100 px-4 flex flex-col justify-between`}
       >
+        {/* Menu Toggle Button */}
         <div className="py-3 flex justify-end">
           <HiMenuAlt3
             size={26}
@@ -39,44 +41,67 @@ const HomePage = () => {
         </div>
 
         {/* Logo Section */}
-        <div className="flex flex-col items-center mt-6 mb-8">
-          <img
-            src="/path-to-your-logo.svg" // Replace with your logo path
-            alt="Logo"
-            className="w-20 h-auto mb-8"
-          />
+        <div className="flex flex-col items-center mt-4 mb-4">
+          <img src={logo} alt="Logo" className="w-16 h-auto" />{' '}
+          {/* Increased logo size */}
         </div>
 
         {/* Navigation Links */}
-        <div className="mt-4 flex flex-col gap-4 relative">
-          {menus?.map((menu, i) => (
-            <Link
-              to={menu?.link}
-              key={i}
-              className={` ${
-                menu?.margin && 'mt-5'
-              } group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-gray-600 rounded-md`}
+        <div className="flex-1 overflow-y-auto">
+          <div className="mt-4 flex flex-col gap-4 relative">
+            {menus.slice(0, -1).map((menu, i) => (
+              <Link
+                to={menu.link}
+                key={i}
+                className={`group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-600 rounded-md`}
+              >
+                <div>{React.createElement(menu.icon, { size: '20' })}</div>
+                <h2
+                  style={{
+                    transitionDelay: `${i + 3}00ms`,
+                  }}
+                  className={`whitespace-pre duration-500 ${
+                    !open && 'opacity-0 translate-x-28 overflow-hidden'
+                  }`}
+                >
+                  {menu.name}
+                </h2>
+                <h2
+                  className={`${
+                    open && 'hidden'
+                  } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit`}
+                >
+                  {menu.name}
+                </h2>
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Logout Link - Pushed to Bottom */}
+        <div className="mt-auto mb-4">
+          <Link
+            to={menus[menus.length - 1]?.link}
+            className="group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-600 rounded-md"
+          >
+            <div>
+              {React.createElement(menus[menus.length - 1]?.icon, {
+                size: '20',
+              })}
+            </div>
+            <h2
+              className={`whitespace-pre duration-500 ${!open && 'opacity-0 translate-x-28 overflow-hidden'}`}
             >
-              <div>{React.createElement(menu?.icon, { size: '20' })}</div>
-              <h2
-                style={{
-                  transitionDelay: `${i + 3}00ms`,
-                }}
-                className={`whitespace-pre duration-500 ${
-                  !open && 'opacity-0 translate-x-28 overflow-hidden'
-                }`}
-              >
-                {menu?.name}
-              </h2>
-              <h2
-                className={`${
-                  open && 'hidden'
-                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
-              >
-                {menu?.name}
-              </h2>
-            </Link>
-          ))}
+              {menus[menus.length - 1]?.name}
+            </h2>
+            <h2
+              className={`${
+                open && 'hidden'
+              } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit`}
+            >
+              {menus[menus.length - 1]?.name}
+            </h2>
+          </Link>
         </div>
       </div>
 
@@ -137,4 +162,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default LecHomePage;
