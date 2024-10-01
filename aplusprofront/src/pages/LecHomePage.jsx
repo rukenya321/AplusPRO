@@ -5,9 +5,10 @@ import { GiPapers } from 'react-icons/gi';
 import { GoDownload } from 'react-icons/go';
 import { BsFileEarmarkText } from 'react-icons/bs';
 import { CiLogout } from 'react-icons/ci';
-import { AiOutlineSearch, AiOutlineFilter } from 'react-icons/ai';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { IoFilter } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import logo from '../logo.png'; // Adjust based on the exact path of the SVG
+import logo from '../logo.png';
 
 const LecHomePage = () => {
   const menus = [
@@ -28,7 +29,7 @@ const LecHomePage = () => {
       {/* Sidebar */}
       <div
         className={`bg-[#011345] min-h-screen ${
-          open ? 'w-72' : 'w-16'
+          open ? 'w-60' : 'w-16'
         } duration-500 text-gray-100 px-4 flex flex-col justify-between`}
       >
         {/* Menu Toggle Button */}
@@ -78,7 +79,7 @@ const LecHomePage = () => {
           </div>
         </div>
 
-        {/* Logout Link - Pushed to Bottom */}
+        {/* Logout Link */}
         <div className="mt-auto mb-4">
           <Link
             to={menus[menus.length - 1]?.link}
@@ -117,7 +118,7 @@ const LecHomePage = () => {
               className="ml-4 outline-none w-full"
             />
             <div className="relative">
-              <AiOutlineFilter
+              <IoFilter
                 className="text-gray-400 text-2xl cursor-pointer ml-4"
                 onClick={toggleFilters}
               />
@@ -143,7 +144,7 @@ const LecHomePage = () => {
         </div>
 
         {/* Card Grid */}
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-6 mt-10">
           <div className="bg-gray-200 rounded-lg shadow-md h-40 flex items-center justify-center">
             <p className="text-gray-400">Content #1</p>
           </div>
