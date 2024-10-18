@@ -11,7 +11,7 @@ import logo from '../logo.png';
 
 const HomePage = () => {
   const menus = [
-    { name: 'Home', link: '/', icon: IoHomeOutline },
+    { name: 'Home', link: '/home', icon: IoHomeOutline },
     { name: 'Papers', link: '/papers', icon: GiPapers },
     { name: 'Downloads', link: '/downloads', icon: GoDownload },
     { name: 'SummaryPRO', link: '/summary', icon: BsFileEarmarkText },

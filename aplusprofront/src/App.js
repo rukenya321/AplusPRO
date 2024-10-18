@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Papers from './pages/Papers';
+import NewPaper from './pages/NewPaper';
+import RecentUploads from './pages/RecentUploads';
 import Downloads from './pages/Downloads';
 import SummaryPRO from './pages/SummaryPRO';
 import Logout from './pages/Logout';
@@ -15,10 +17,13 @@ function App() {
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/papers" element={<Papers />} />
+        <Route path="/newpaper" element={<NewPaper />} />
+        <Route path="/recentuploads" element={<RecentUploads />} />
         <Route path="/downloads" element={<Downloads />} />
         <Route path="/summary" element={<SummaryPRO />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/home1" element={<LecHomePage />} />
         <Route path="/lec-home" element={<LecHomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
