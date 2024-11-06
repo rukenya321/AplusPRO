@@ -10,6 +10,7 @@ import LoginPage from './components/LoginPage';
 import About from './components/About';
 import Disclaimer from './components/Disclaimer';
 import LecHomePage from './pages/LecHomePage';
+import AdminHomePage from './pages/AdminHomePage';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
         <Route path="/summary" element={<SummaryPRO />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/home1" element={<LecHomePage />} />
+        <Route path="/admin-home" element={<AdminHomePage />} />
         <Route path="/lec-home" element={<LecHomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
