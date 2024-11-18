@@ -12,7 +12,7 @@ import logo from '../logo.png';
 
 const LecHomePage = () => {
   const menus = [
-    { name: 'Home', link: '/home1', icon: IoHomeOutline },
+    { name: 'Home', link: '/lec-home', icon: IoHomeOutline },
     { name: 'Recent Uploads', link: '/recentuploads', icon: GiPapers },
     { name: 'Upload a new paper', link: '/newpaper', icon: GoDownload },
     { name: 'SummaryPRO', link: '/summary', icon: BsFileEarmarkText },
