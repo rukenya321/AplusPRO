@@ -24,10 +24,7 @@ const AdminPage = () => {
     {
       name: 'Home',
       icon: IoHomeOutline,
-      subMenus: [
-        { name: 'Overview', link: '/overview' },
-        { name: 'Quick Links', link: '/quick-links' },
-      ],
+      subMenus: [{ name: 'SummaryPRO', link: '/summary' }],
     },
     {
       name: 'User Management',
@@ -177,9 +174,7 @@ const AdminPage = () => {
         <section>
           {activeSection === 'Home' && (
             <div>
-              <h2 className="text-[#011345] font-semibold mb-4">
-                System Overview
-              </h2>
+              <h2 className="text-[#011345] font-semibold mb-4">SummaryPRO</h2>
               <p className="text-[#011345]">
                 Welcome to the Admin Dashboard! Here you can view and manage
                 various aspects of the system.

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import { IoHomeOutline } from 'react-icons/io5';
 import { GiPapers } from 'react-icons/gi';
@@ -22,7 +22,25 @@ const LecHomePage = () => {
   const [open, setOpen] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
 
+  // Ref for dropdown
+  const filterRef = useRef(null);
+
+  // Toggle dropdown visibility
   const toggleFilters = () => setShowFilters(!showFilters);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setShowFilters(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <section className="flex gap-6">
@@ -117,7 +135,7 @@ const LecHomePage = () => {
               placeholder="Search for Exams..."
               className="ml-4 outline-none w-full"
             />
-            <div className="relative">
+            <div className="relative" ref={filterRef}>
               <IoFilter
                 className="text-gray-400 text-2xl cursor-pointer ml-4"
                 onClick={toggleFilters}

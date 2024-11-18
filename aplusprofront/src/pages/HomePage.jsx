@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import { IoHomeOutline } from 'react-icons/io5';
 import { GiPapers } from 'react-icons/gi';
@@ -21,8 +21,23 @@ const HomePage = () => {
 
   const [open, setOpen] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
+  const filterRef = useRef(null);
 
   const toggleFilters = () => setShowFilters(!showFilters);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setShowFilters(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <section className="flex gap-6">
@@ -79,7 +94,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Logout Link - Pushed to Bottom */}
+        {/* Logout Link */}
         <div className="mt-auto mb-4">
           <Link
             to={menus[menus.length - 1]?.link}
@@ -117,7 +132,7 @@ const HomePage = () => {
               placeholder="Search for Exams..."
               className="ml-4 outline-none w-full"
             />
-            <div className="relative">
+            <div className="relative" ref={filterRef}>
               <IoFilter
                 className="text-gray-400 text-2xl cursor-pointer ml-4"
                 onClick={toggleFilters}
