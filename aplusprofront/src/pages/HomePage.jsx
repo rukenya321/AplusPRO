@@ -5,7 +5,8 @@ import { GiPapers } from 'react-icons/gi';
 import { GoDownload } from 'react-icons/go';
 import { BsFileEarmarkText } from 'react-icons/bs';
 import { CiLogout } from 'react-icons/ci';
-import { AiOutlineSearch, AiOutlineFilter } from 'react-icons/ai';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { IoFilter } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import logo from '../logo.png';
 
@@ -117,7 +118,7 @@ const HomePage = () => {
               className="ml-4 outline-none w-full"
             />
             <div className="relative">
-              <AiOutlineFilter
+              <IoFilter
                 className="text-gray-400 text-2xl cursor-pointer ml-4"
                 onClick={toggleFilters}
               />
