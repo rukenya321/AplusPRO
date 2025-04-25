@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/AplusPRO/static/css/main.c7eef1a1.css",
+    "main.js": "/AplusPRO/static/js/main.9001d7f3.js",
+    "static/js/453.338c4d98.chunk.js": "/AplusPRO/static/js/453.338c4d98.chunk.js",
+    "static/media/logo.png": "/AplusPRO/static/media/logo.0fd1e55921b7d8cd1a9c.png",
+    "index.html": "/AplusPRO/index.html",
+    "main.c7eef1a1.css.map": "/AplusPRO/static/css/main.c7eef1a1.css.map",
+    "main.9001d7f3.js.map": "/AplusPRO/static/js/main.9001d7f3.js.map",
+    "453.338c4d98.chunk.js.map": "/AplusPRO/static/js/453.338c4d98.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7eef1a1.css",
+    "static/js/main.9001d7f3.js"
+  ]
+}
