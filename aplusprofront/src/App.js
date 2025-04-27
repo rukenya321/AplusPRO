@@ -14,7 +14,7 @@ import AdminHomePage from './pages/AdminHomePage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/AplusPRO">
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path="/papers" element={<Papers />} />
