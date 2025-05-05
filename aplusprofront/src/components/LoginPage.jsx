@@ -5,27 +5,56 @@ import logo from '../logo.png';
 const LoginPage = () => {
   const [staffStudentId, setStaffStudentId] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('student'); // Default role is student
+  const [errorMsg, setErrorMsg] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    setErrorMsg('');
 
-    // Simulate backend role-based authentication (you'll replace this with an API call)
-    if (role === 'admin') {
-      console.log('Admin login:', { staffStudentId, password });
-      // Redirect to admin homepage (assuming Admin homepage is /admin-dashboard)
-      navigate('/admin-home');
-    } else if (role === 'staff') {
-      console.log('Lecturer login:', { staffStudentId, password });
-      // Redirect to lecturer (staff) homepage
-      navigate('/lec-home'); // Change this route as needed
-    } else if (role === 'student') {
-      console.log('Student login:', { staffStudentId, password });
-      // Redirect to student homepage
-      navigate('/home'); // Change this route as needed
-    } else {
-      console.error('Invalid role selected');
+    try {
+      const response = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: staffStudentId,
+          password: password,
+        }),
+      });
+
+      const data = await response.text();
+
+      if (response.ok) {
+        const jsonData = JSON.parse(data);
+        console.log('Login success:', jsonData);
+
+        // ✅ Save login info in localStorage
+        localStorage.setItem('userID', staffStudentId); // Save user_id
+        localStorage.setItem('role', jsonData.role); // Save role
+
+        if (jsonData.role === 'student') {
+          // ✅ Additionally store courseCode if student
+          localStorage.setItem('courseCode', jsonData.course);
+        }
+
+        // Redirect based on backend role
+        if (jsonData.role === 'admin') {
+          navigate('/admin-home');
+        } else if (jsonData.role === 'lecturer') {
+          navigate('/lec-home');
+        } else if (jsonData.role === 'student') {
+          navigate('/home');
+        } else {
+          console.error('Unknown role:', jsonData.role);
+        }
+      } else {
+        setErrorMsg(data);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setErrorMsg('Something went wrong. Please try again.');
     }
   };
 
@@ -71,22 +100,11 @@ const LoginPage = () => {
                 required
               />
             </div>
-            <div>
-              <label htmlFor="role" className="block mb-2">
-                Select Role
-              </label>
-              <select
-                id="role"
-                value={role}
-                onChange={(e) => setRole(e.target.value)}
-                className="w-full px-3 py-2 border rounded-md"
-                required
-              >
-                <option value="student">Student</option>
-                <option value="staff">Lecturer</option>
-                <option value="admin">Admin</option>
-              </select>
-            </div>
+
+            {errorMsg && (
+              <div className="text-red-500 text-sm text-center">{errorMsg}</div>
+            )}
+
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"

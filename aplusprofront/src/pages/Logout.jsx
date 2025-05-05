@@ -5,8 +5,13 @@ const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Clear user session or token
-    localStorage.removeItem('authToken');
+    // Clear localStorage items (user_id, role, authToken)
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('role');
+    localStorage.removeItem('authToken'); // If used
+
+    // Optional: Clear everything in localStorage
+    // localStorage.clear();
 
     // Redirect to login page
     navigate('/');
